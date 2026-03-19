@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <PropertyGroup>
+    <VersionPrefix>1.0.0-rc.1</VersionPrefix>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <VersionPrefix Condition="'$(VersionPrefix)'!=''">$(VersionPrefix)</VersionPrefix>
+    <VersionSuffix>$(VersionSuffix)</VersionSuffix>
+    <VersionBuild>$(VersionBuild)</VersionBuild>
+    <Version>$(VersionPrefix)</Version>
+    <Version Condition="'$(VersionSuffix)'!=''">$(VersionPrefix)-$(VersionSuffix)</Version>
+    <Version Condition="'$(VersionBuild)'!=''">$(Version)+$(VersionBuild)</Version>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- dotnet run -p FeatureFlags=#SomeConstant#OtherConstant -->
+    <DefineConstants>$(DefineConstants)$(FeatureFlags.Replace("#",";"))</DefineConstants>
+
+    <!-- DEBUG DefineConstants: SomeConstant, OtherConstant -->
+    <!-- <DefineConstants>$(DefineConstants);SomeConstant;OtherConstant</DefineConstants> -->
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(MSBuildProjectName.EndsWith(`.Tests`))' != 'true' and '$(MSBuildProjectName.EndsWith(`.Benchmarks`))' != 'true' ">
+    <Product>Product Name</Product>
+    <Authors>Your Name</Authors>
+    <Copyright>Copyright © YourName 2026</Copyright>
+    <!-- <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath> -->
+    <!-- <OutputPath>$(SolutionDir)\Bin\$(Configuration)</OutputPath> -->
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <NoWarn>NU1803;NU1507</NoWarn>
+    <WarningsAsErrors>$(WarningsAsErrors);Nullable</WarningsAsErrors>
+    <LangVersion>preview</LangVersion>
+    <!-- <ImplicitUsings>disable</ImplicitUsings> -->
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <NuGetAudit>false</NuGetAudit>
+  </PropertyGroup>
+
+  <!-- Remove NETSDK1206 Warning -->
+  <!-- <PropertyGroup>
+    <UseRidGraph>true</UseRidGraph>
+  </PropertyGroup> -->
+
+  <!-- Alias: Lock -->
+  <!-- <ItemGroup>
+    <Using Include="System.Object" Alias="Lock" Condition="!$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net9.0'))" />
+  </ItemGroup> -->
+</Project>

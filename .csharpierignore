@@ -1,0 +1,8 @@
+**/*.*proj
+**/*.sln*
+**/*.props
+**/*.xml
+**/*.xaml
+**/*.axaml
+**/*.config
+**/*.manifest
