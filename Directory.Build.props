@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project>
   <PropertyGroup>
-    <VersionPrefix>1.0.0-rc.1</VersionPrefix>
+    <VersionPrefix>1.0.0-preview.1</VersionPrefix>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -26,7 +26,7 @@
     <Authors>Your Name</Authors>
     <Copyright>Copyright © YourName 2026</Copyright>
     <!-- <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath> -->
-    <!-- <OutputPath>$(SolutionDir)\Bin\$(Configuration)</OutputPath> -->
+    <!-- <OutputPath>$(SolutionDir)Bin\$(Configuration)</OutputPath> -->
   </PropertyGroup>
 
   <PropertyGroup>

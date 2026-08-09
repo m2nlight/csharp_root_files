@@ -63,6 +63,7 @@ Editor config file for dotnet projects.
 
 ```editorconfig
 [*.cs]
+csharp_style_prefer_top_level_statements = true:suggestion
 csharp_style_namespace_declarations = file_scoped:suggestion
 ```
 
