@@ -21,7 +21,7 @@
     <!-- <DefineConstants>$(DefineConstants);SomeConstant;OtherConstant</DefineConstants> -->
   </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(MSBuildProjectName.EndsWith(`.Tests`))' != 'true' and '$(MSBuildProjectName.EndsWith(`.Benchmarks`))' != 'true' ">
+  <PropertyGroup Condition="'$(MSBuildProjectName.EndsWith(`.Tests`))' != 'true' and '$(MSBuildProjectName.EndsWith(`.Benchmarks`))' != 'true'">
     <Product>Product Name</Product>
     <Authors>Your Name</Authors>
     <Copyright>Copyright © YourName 2026</Copyright>
@@ -31,15 +31,24 @@
 
   <PropertyGroup>
     <Nullable>enable</Nullable>
-    <NoWarn>NU1803;NU1507</NoWarn>
-    <WarningsAsErrors>$(WarningsAsErrors);Nullable</WarningsAsErrors>
+    <NoWarn>$(NoWarn);NU1803;NU1507</NoWarn>
+    <WarningsAsErrors>$(WarningsAsErrors);Nullable;CS1570;CS1572</WarningsAsErrors>
     <LangVersion>preview</LangVersion>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <!-- <ImplicitUsings>disable</ImplicitUsings> -->
   </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+  <PropertyGroup Condition="'$(Configuration)' != 'Debug'">
     <NuGetAudit>false</NuGetAudit>
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
   </PropertyGroup>
+
+  <ItemGroup Condition="'$(Configuration)'=='Debug' and '$(MSBuildProjectName.EndsWith(`.Tests`))' != 'true' and '$(MSBuildProjectName.EndsWith(`.Benchmarks`))' != 'true'">
+    <PackageReference Include="Meziantou.Analyzer">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 
   <!-- Remove NETSDK1206 Warning -->
   <!-- <PropertyGroup>

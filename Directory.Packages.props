@@ -4,7 +4,7 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
     <CentralPackageVersionOverrideEnabled>true</CentralPackageVersionOverrideEnabled>
-    <CentralPackageFloatingVersionsEnabled>false</CentralPackageFloatingVersionsEnabled>
+    <CentralPackageFloatingVersionsEnabled>true</CentralPackageFloatingVersionsEnabled>
   </PropertyGroup>
   <ItemGroup>
     <!-- Microsoft -->
@@ -12,5 +12,13 @@
 
     <!-- Test -->
     <!-- <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.*" /> -->
+    
+    <!-- Analyzers should be updated -->
+    <PackageVersion Include="Meziantou.Analyzer" Version="3.*" />
+    <PackageVersion Include="xunit.analyzers" Version="2.*" />
+    <!-- polysharp for old framework -->
+    <PackageVersion Include="PolySharp" Version="1.*" />
+    <PackageVersion Include="System.Memory" Version="4.*" />
+    <PackageVersion Include="System.ValueTuple" Version="4.*" />
   </ItemGroup>
 </Project>

@@ -7,6 +7,7 @@ CSharp Root Files
     - [Xaml/Axaml Formatter](#xamlaxaml-formatter)
   - [.editorconfig](#editorconfig)
     - [SpellingExclusions.dic](#spellingexclusionsdic)
+    - [Meziantou.Analyzer](#meziantouanalyzer)
   - [Directory.Build.props](#directorybuildprops)
   - [Directory.Packages.props](#directorypackagesprops)
 - [Some useful properties in csproj](#some-useful-properties-in-csproj)
@@ -51,24 +52,6 @@ dotnet tool install --global csharpier
 .editorconfig
 -------------
 
-Editor config file for dotnet projects.
-
-- Download .editorconfig file from [roslyn repository](https://github.com/dotnet/roslyn/blob/main/.editorconfig)
-- See [C# formatting options](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/csharp-formatting-options)
-
-**Modify .editorconfig** from roslyn repository
-
-1. Disable `file_header_template`
-2. Add options to `[*.cs]` section
-
-```editorconfig
-[*.cs]
-csharp_style_prefer_top_level_statements = true:suggestion
-csharp_style_namespace_declarations = file_scoped:suggestion
-```
-
-_- or -_
-
 Create a new .editorconfig file by dotnet new command.
 
 ```sh
@@ -87,6 +70,78 @@ spelling_exclusion_path = SpellingExclusions.dic
 Each line is a word to exclude from spelling check.
 
 The filename is an option `spelling_exclusion_path` from `.editorconfig` file.
+
+### Meziantou.Analyzer
+
+https://github.com/meziantou/Meziantou.Analyzer
+
+<details>
+<summary>Add severity configurations to .editorconfig</summary>
+
+```editorconfig
+[*.cs]
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/configuration-options#severity-level
+# error, warning, suggestion, silent, none, default
+dotnet_diagnostic.MA0002.severity = suggestion
+dotnet_diagnostic.MA0004.severity = suggestion
+dotnet_diagnostic.MA0005.severity = silent
+dotnet_diagnostic.MA0006.severity = suggestion
+dotnet_diagnostic.MA0008.severity = suggestion
+dotnet_diagnostic.MA0009.severity = suggestion
+dotnet_diagnostic.MA0011.severity = suggestion
+dotnet_diagnostic.MA0015.severity = error
+dotnet_diagnostic.MA0016.severity = suggestion
+dotnet_diagnostic.MA0017.severity = error
+dotnet_diagnostic.MA0019.severity = suggestion
+dotnet_diagnostic.MA0021.severity = suggestion
+dotnet_diagnostic.MA0022.severity = suggestion
+dotnet_diagnostic.MA0023.severity = suggestion
+dotnet_diagnostic.MA0024.severity = suggestion
+dotnet_diagnostic.MA0028.severity = suggestion
+dotnet_diagnostic.MA0033.severity = error
+dotnet_diagnostic.MA0046.severity = suggestion
+dotnet_diagnostic.MA0047.severity = error
+dotnet_diagnostic.MA0048.severity = suggestion
+dotnet_diagnostic.MA0051.severity = suggestion
+dotnet_diagnostic.MA0054.severity = error
+dotnet_diagnostic.MA0055.severity = suggestion
+dotnet_diagnostic.MA0056.severity = suggestion
+dotnet_diagnostic.MA0057.severity = error
+dotnet_diagnostic.MA0058.severity = error
+dotnet_diagnostic.MA0059.severity = warning
+dotnet_diagnostic.MA0061.severity = suggestion
+dotnet_diagnostic.MA0062.severity = error
+dotnet_diagnostic.MA0064.severity = error
+dotnet_diagnostic.MA0070.severity = suggestion
+dotnet_diagnostic.MA0074.severity = suggestion
+dotnet_diagnostic.MA0076.severity = none
+dotnet_diagnostic.MA0077.severity = suggestion
+dotnet_diagnostic.MA0081.severity = error
+dotnet_diagnostic.MA0084.severity = error
+dotnet_diagnostic.MA0085.severity = error
+dotnet_diagnostic.MA0091.severity = suggestion
+dotnet_diagnostic.MA0092.severity = error
+dotnet_diagnostic.MA0093.severity = suggestion
+dotnet_diagnostic.MA0096.severity = suggestion
+dotnet_diagnostic.MA0097.severity = suggestion
+dotnet_diagnostic.MA0099.severity = error
+dotnet_diagnostic.MA0100.severity = error
+dotnet_diagnostic.MA0134.severity = suggestion
+dotnet_diagnostic.MA0146.severity = suggestion
+dotnet_diagnostic.MA0158.severity = suggestion
+dotnet_diagnostic.MA0168.severity = warning
+dotnet_diagnostic.MA0191.severity = suggestion
+dotnet_diagnostic.MA0195.severity = error
+dotnet_diagnostic.MA0196.severity = error
+dotnet_diagnostic.MA0198.severity = error
+dotnet_diagnostic.MA0199.severity = error
+dotnet_diagnostic.MA0201.severity = suggestion
+dotnet_diagnostic.MA0203.severity = error
+dotnet_diagnostic.MA0207.severity = error
+dotnet_diagnostic.MA0208.severity = error
+```
+
+</details>
 
 
 Directory.Build.props
@@ -115,6 +170,8 @@ Directory.Packages.props
 - CentralPackageVersionOverrideEnabled
 - CentralPackageFloatingVersionsEnabled
 - PackageVersion
+- Meziantou.Analyzer
+- PolySharp
 
 **VersionOverride** can be used to override the version of a package in a `csproj` file.
 
