@@ -1,65 +1,42 @@
 root = true
 
 [*.cs]
-# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/configuration-options#severity-level
+# https://github.com/meziantou/Meziantou.Analyzer
 # error, warning, suggestion, silent, none, default
 dotnet_diagnostic.MA0002.severity = suggestion
 dotnet_diagnostic.MA0004.severity = suggestion
-dotnet_diagnostic.MA0005.severity = silent
+dotnet_diagnostic.MA0005.severity = none
 dotnet_diagnostic.MA0006.severity = suggestion
 dotnet_diagnostic.MA0008.severity = suggestion
 dotnet_diagnostic.MA0009.severity = suggestion
 dotnet_diagnostic.MA0011.severity = suggestion
-dotnet_diagnostic.MA0015.severity = error
 dotnet_diagnostic.MA0016.severity = suggestion
-dotnet_diagnostic.MA0017.severity = error
 dotnet_diagnostic.MA0019.severity = suggestion
 dotnet_diagnostic.MA0021.severity = suggestion
 dotnet_diagnostic.MA0022.severity = suggestion
 dotnet_diagnostic.MA0023.severity = suggestion
 dotnet_diagnostic.MA0024.severity = suggestion
 dotnet_diagnostic.MA0028.severity = suggestion
-dotnet_diagnostic.MA0033.severity = error
 dotnet_diagnostic.MA0046.severity = suggestion
-dotnet_diagnostic.MA0047.severity = error
 dotnet_diagnostic.MA0048.severity = suggestion
 dotnet_diagnostic.MA0051.severity = suggestion
-dotnet_diagnostic.MA0054.severity = error
 dotnet_diagnostic.MA0055.severity = suggestion
 dotnet_diagnostic.MA0056.severity = suggestion
-dotnet_diagnostic.MA0057.severity = error
-dotnet_diagnostic.MA0058.severity = error
-dotnet_diagnostic.MA0059.severity = warning
+dotnet_diagnostic.MA0057.severity = suggestion
+dotnet_diagnostic.MA0058.severity = suggestion
+dotnet_diagnostic.MA0059.severity = suggestion
 dotnet_diagnostic.MA0061.severity = suggestion
-dotnet_diagnostic.MA0062.severity = error
-dotnet_diagnostic.MA0064.severity = error
 dotnet_diagnostic.MA0070.severity = suggestion
 dotnet_diagnostic.MA0074.severity = suggestion
-dotnet_diagnostic.MA0076.severity = none
+dotnet_diagnostic.MA0076.severity = silent
 dotnet_diagnostic.MA0077.severity = suggestion
-dotnet_diagnostic.MA0081.severity = error
-dotnet_diagnostic.MA0084.severity = error
-dotnet_diagnostic.MA0085.severity = error
 dotnet_diagnostic.MA0091.severity = suggestion
-dotnet_diagnostic.MA0092.severity = error
 dotnet_diagnostic.MA0093.severity = suggestion
 dotnet_diagnostic.MA0096.severity = suggestion
 dotnet_diagnostic.MA0097.severity = suggestion
-dotnet_diagnostic.MA0099.severity = error
-dotnet_diagnostic.MA0100.severity = error
 dotnet_diagnostic.MA0134.severity = suggestion
-dotnet_diagnostic.MA0146.severity = suggestion
 dotnet_diagnostic.MA0158.severity = suggestion
-dotnet_diagnostic.MA0168.severity = warning
-dotnet_diagnostic.MA0191.severity = suggestion
-dotnet_diagnostic.MA0195.severity = error
-dotnet_diagnostic.MA0196.severity = error
-dotnet_diagnostic.MA0198.severity = error
-dotnet_diagnostic.MA0199.severity = error
-dotnet_diagnostic.MA0201.severity = suggestion
-dotnet_diagnostic.MA0203.severity = error
-dotnet_diagnostic.MA0207.severity = error
-dotnet_diagnostic.MA0208.severity = error
+dotnet_diagnostic.MA0191.severity = silent
 
 # All files
 [*]
@@ -97,7 +74,7 @@ insert_final_newline = false
 [*.{cs,vb}]
 
 # Organize usings
-dotnet_separate_import_directive_groups = true
+dotnet_separate_import_directive_groups = false
 dotnet_sort_system_directives_first = true
 file_header_template = unset
 
