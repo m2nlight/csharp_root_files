@@ -10,15 +10,17 @@
     <!-- Microsoft -->
     <!-- <PackageVersion Include="System.Drawing.Common" Version="8.*" /> -->
 
-    <!-- Test -->
-    <!-- <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.*" /> -->
-    
     <!-- Analyzers should be updated -->
     <PackageVersion Include="Meziantou.Analyzer" Version="3.*" />
     <PackageVersion Include="xunit.analyzers" Version="2.*" />
+
+    <!-- Fody version requires latest -->
+    <!-- <PackageVersion Include="Fody" Version="6.9.3" />
+    <PackageVersion Include="ConfigureAwait.Fody" Version="3.4.1" /> -->
+
     <!-- polysharp for old framework -->
-    <PackageVersion Include="PolySharp" Version="1.*" />
-    <PackageVersion Include="System.Memory" Version="4.*" />
-    <PackageVersion Include="System.ValueTuple" Version="4.*" />
+    <!-- <PackageVersion Include="PolySharp" Version="1.*" />
+    <PackageVersion Include="System.Memory" Version="4.5.*" />
+    <PackageVersion Include="System.ValueTuple" Version="4.5.*" /> -->
   </ItemGroup>
 </Project>
